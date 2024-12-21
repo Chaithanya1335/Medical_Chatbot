@@ -1,0 +1,11 @@
+PyPdf2
+langchain
+langchain_community
+google_generativeai
+langchain_google_genai
+google.generativeai
+streamlit
+nltk
+faiss-cpu
+langchain-text-splitters
+python-dotenv
