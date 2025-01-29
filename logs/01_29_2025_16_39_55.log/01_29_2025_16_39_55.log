@@ -1,0 +1,4 @@
+[ 2025-01-29 16:39:55,699 ] 22 root - INFO - Data Ingestion Completed
+[ 2025-01-29 16:39:55,699 ] 28 root - INFO - Data Extracction Started
+[ 2025-01-29 16:42:32,194 ] 36 root - INFO - Data Extraction Completed
+[ 2025-01-29 16:42:32,194 ] 39 root - INFO - Saving Data Locally 

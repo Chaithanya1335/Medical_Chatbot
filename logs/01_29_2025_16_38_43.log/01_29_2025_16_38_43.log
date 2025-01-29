@@ -1,0 +1,3 @@
+[ 2025-01-29 16:38:43,756 ] 22 root - INFO - Data Ingestion Completed
+[ 2025-01-29 16:38:43,756 ] 28 root - INFO - Data Extracction Started
+[ 2025-01-29 16:38:43,756 ] 402 PyPDF2._reader - WARNING - PdfReader stream/file object is not in binary mode. It may not be read correctly.
