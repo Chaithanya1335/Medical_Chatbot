@@ -9,3 +9,9 @@ nltk
 faiss-cpu
 langchain-text-splitters
 python-dotenv
+ultralytics 
+opencv-python 
+matplotlib 
+numpy
+
+-e . 
