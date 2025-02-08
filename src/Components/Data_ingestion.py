@@ -1,8 +1,10 @@
 from src.exception import CustomException
 from src.logging import logging
+from src.Components.Preprocessing import Preprocessing
 import os
 import sys
 import PyPDF2
+
 
 
 class DataIngestion:
@@ -55,3 +57,11 @@ if __name__ == "__main__":
     file_path = r"D:\Personal projects\Medical_Chatbot\The-Gale-Encyclopedia-of-Medicine-3rd-Edition-staibabussalamsula.ac_.id_.pdf"
     path = DataIngestion(file_path=file_path).extract_data()
     print(f"Extracted data saved at: {path}")
+
+    preprocess_obj = Preprocessing(path)
+    data = preprocess_obj.read_data()
+    preprocessed_data = preprocess_obj.preprocess_text(text=data)
+    chunked_data = preprocess_obj.get_text_chunks(text=preprocessed_data)
+
+    print("DataPreprocessing Completed")
+    

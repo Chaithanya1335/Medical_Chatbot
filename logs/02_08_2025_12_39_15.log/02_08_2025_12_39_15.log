@@ -1,0 +1,10 @@
+[ 2025-02-08 12:39:20,081 ] 22 root - INFO - Data Ingestion Started
+[ 2025-02-08 12:39:20,081 ] 26 root - INFO - Data Extraction Started
+[ 2025-02-08 12:42:57,902 ] 36 root - INFO - Data Extraction Completed
+[ 2025-02-08 12:42:57,972 ] 48 root - INFO - Data Saved Locally at Data\Extracted.txt
+[ 2025-02-08 12:42:58,069 ] 38 root - INFO - Data Preprocessing Entered
+[ 2025-02-08 12:42:58,589 ] 42 root - INFO - Unnecessary Characters Removed
+[ 2025-02-08 12:42:58,589 ] 44 root - INFO - Stopword Removal Process Started
+[ 2025-02-08 12:43:07,805 ] 56 root - INFO - Data Preprocessing Completed
+[ 2025-02-08 12:43:07,849 ] 72 root - INFO - Text Chunking Started
+[ 2025-02-08 12:43:12,730 ] 75 root - INFO - Text Chunking Completed
