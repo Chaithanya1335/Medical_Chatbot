@@ -1,6 +1,8 @@
 from src.exception import CustomException
 from src.logging import logging
 from src.Components.Preprocessing import Preprocessing
+from src.Components.Model_Accessing import ModelAccessing
+from src.Components.Vector_db import VectorDB
 import os
 import sys
 import PyPDF2
@@ -62,6 +64,8 @@ if __name__ == "__main__":
     data = preprocess_obj.read_data()
     preprocessed_data = preprocess_obj.preprocess_text(text=data)
     chunked_data = preprocess_obj.get_text_chunks(text=preprocessed_data)
+    vector_db = VectorDB().create_vector_db(chunked_data)
 
-    print("DataPreprocessing Completed")
+
+    print("DataBase creation Completed")
     

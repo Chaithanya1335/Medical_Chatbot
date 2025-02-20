@@ -1,0 +1,15 @@
+[ 2025-02-20 15:24:11,550 ] 24 root - INFO - Data Ingestion Started
+[ 2025-02-20 15:24:11,551 ] 28 root - INFO - Data Extraction Started
+[ 2025-02-20 15:30:31,986 ] 38 root - INFO - Data Extraction Completed
+[ 2025-02-20 15:30:32,059 ] 50 root - INFO - Data Saved Locally at Data\Extracted.txt
+[ 2025-02-20 15:30:32,157 ] 38 root - INFO - Data Preprocessing Entered
+[ 2025-02-20 15:30:32,731 ] 42 root - INFO - Unnecessary Characters Removed
+[ 2025-02-20 15:30:32,731 ] 44 root - INFO - Stopword Removal Process Started
+[ 2025-02-20 15:30:42,877 ] 56 root - INFO - Data Preprocessing Completed
+[ 2025-02-20 15:30:42,916 ] 72 root - INFO - Text Chunking Started
+[ 2025-02-20 15:30:48,116 ] 75 root - INFO - Text Chunking Completed
+[ 2025-02-20 15:30:48,118 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-02-20 15:30:48,118 ] 24 root - INFO - Configuring Gemini
+[ 2025-02-20 15:30:48,118 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key AIzaSyDFFZ9pEh7z21NGOHBw4ytlg_LnPZCMSiw
+[ 2025-02-20 15:30:48,137 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-02-20 15:30:48,137 ] 14 root - INFO - Creating Vector DB...
