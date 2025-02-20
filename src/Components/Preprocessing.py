@@ -70,7 +70,7 @@ class Preprocessing:
         """
         try:
             logging.info("Text Chunking Started")
-            text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
+            text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=1000)
             chunks = text_splitter.split_text(text)
             logging.info("Text Chunking Completed")
             return chunks

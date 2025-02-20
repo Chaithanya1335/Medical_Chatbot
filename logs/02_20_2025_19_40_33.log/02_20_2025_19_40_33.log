@@ -1,0 +1,26 @@
+[ 2025-02-20 19:40:36,118 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-02-20 19:40:36,118 ] 24 root - INFO - Configuring Gemini
+[ 2025-02-20 19:40:36,119 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key AIzaSyADOZuwra1aeiYuR1t64hL5zu_pF7bejWE
+[ 2025-02-20 19:40:36,129 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-02-20 19:40:36,176 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-02-20 19:40:36,176 ] 24 root - INFO - Configuring Gemini
+[ 2025-02-20 19:40:36,176 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-02-20 19:40:36,342 ] 54 root - INFO - LLM Model Accessed
+[ 2025-02-20 19:40:36,342 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-02-20 19:40:36,344 ] 24 root - INFO - Configuring Gemini
+[ 2025-02-20 19:40:36,344 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key AIzaSyADOZuwra1aeiYuR1t64hL5zu_pF7bejWE
+[ 2025-02-20 19:40:36,345 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-02-20 19:40:36,345 ] 24 root - INFO - Data Ingestion Started
+[ 2025-02-20 19:40:36,345 ] 28 root - INFO - Data Extraction Started
+[ 2025-02-20 19:43:32,031 ] 38 root - INFO - Data Extraction Completed
+[ 2025-02-20 19:43:32,098 ] 50 root - INFO - Data Saved Locally at Data\Extracted.txt
+[ 2025-02-20 19:43:32,180 ] 72 root - INFO - Text Chunking Started
+[ 2025-02-20 19:43:32,713 ] 75 root - INFO - Text Chunking Completed
+[ 2025-02-20 19:43:32,722 ] 14 root - INFO - Creating Vector DB...
+[ 2025-02-20 19:51:22,126 ] 98 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-02-20 19:51:22,126 ] 103 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-02-20 19:51:22,126 ] 110 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-02-20 19:51:22,158 ] 112 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-02-20 19:51:22,276 ] 17 root - INFO - Vector DB created successfully.
+[ 2025-02-20 19:51:23,426 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 413 Payload Too Large"
