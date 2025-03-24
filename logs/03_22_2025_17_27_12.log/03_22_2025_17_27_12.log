@@ -1,0 +1,22 @@
+[ 2025-03-22 17:27:21,305 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-03-22 17:27:21,305 ] 24 root - INFO - Configuring Gemini
+[ 2025-03-22 17:27:21,305 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key AIzaSyADOZuwra1aeiYuR1t64hL5zu_pF7bejWE
+[ 2025-03-22 17:27:21,341 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-03-22 17:27:21,396 ] 24 root - INFO - Data Ingestion Started
+[ 2025-03-22 17:27:21,396 ] 28 root - INFO - Data Extraction Started
+[ 2025-03-22 17:30:27,441 ] 38 root - INFO - Data Extraction Completed
+[ 2025-03-22 17:30:27,594 ] 50 root - INFO - Data Saved Locally at Data\Extracted.txt
+[ 2025-03-22 17:30:27,804 ] 38 root - INFO - Data Preprocessing Entered
+[ 2025-03-22 17:30:29,039 ] 42 root - INFO - Unnecessary Characters Removed
+[ 2025-03-22 17:30:29,039 ] 44 root - INFO - Stopword Removal Process Started
+[ 2025-03-22 17:30:47,200 ] 56 root - INFO - Data Preprocessing Completed
+[ 2025-03-22 17:30:47,274 ] 72 root - INFO - Text Chunking Started
+[ 2025-03-22 17:30:55,074 ] 75 root - INFO - Text Chunking Completed
+[ 2025-03-22 17:30:55,074 ] 14 root - INFO - Creating Vector DB...
+[ 2025-03-22 17:35:53,694 ] 98 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-03-22 17:35:53,694 ] 103 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-03-22 17:35:53,694 ] 110 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-03-22 17:35:54,044 ] 112 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-03-22 17:35:54,424 ] 19 root - INFO - Vector DB created successfully.
+[ 2025-03-22 17:35:54,455 ] 23 root - INFO - Local DataBase is created

@@ -13,8 +13,15 @@ class VectorDB:
         try:
             logging.info("Creating Vector DB...")
             # Create a new vector database
+            
             vector_db = FAISS.from_texts(text_chunks, embedding=embeding_model)
+            
             logging.info("Vector DB created successfully.")
+            
+            vector_db.save_local("faiss_index")
+
+            logging.info("Local DataBase is created")
+            
             return vector_db
         except Exception as e:
             raise CustomException(e,sys)

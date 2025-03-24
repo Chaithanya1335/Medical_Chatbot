@@ -33,7 +33,7 @@ class ModelAccessing:
 
     def get_Embedding_model(self):
 
-        logging.info(f"Accessing models/text-embedding-004 using gemini api key {self.GEMINI_API_KEY}")
+        logging.info(f"Accessing models/text-embedding-004 using gemini api key ")
         try:
             embeding_model = GoogleGenerativeAIEmbeddings(model = "models/embedding-001",google_api_key=self.GEMINI_API_KEY)
 

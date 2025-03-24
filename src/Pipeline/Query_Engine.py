@@ -2,10 +2,8 @@ from langchain.chains import RetrievalQA
 from langchain.prompts import PromptTemplate
 from src.logging import logging
 from src.exception import CustomException
-from src.Components.Data_ingestion import DataIngestion
-from src.Components.Preprocessing import Preprocessing
 from src.Components.Model_Accessing import ModelAccessing
-from src.Components.Vector_db import VectorDB
+from langchain.vectorstores import FAISS
 import os
 import sys
 
@@ -13,6 +11,7 @@ class QueryEngine:
     def __init__(self):
         
         try:
+            logging.info("Creating Prompt Template")
             Prompt = ''' 
                         You are a medical assistant AI designed to assist with medical queries. 
                         Based on the given context, answer the user's question accurately and comprehensively.
@@ -37,33 +36,23 @@ class QueryEngine:
 
             self.model = ModelAccessing().get_llm_model()
 
+            logging.info(" Prompt Template Created ")
+
         except Exception as e:
             raise CustomException(e,sys)
 
-    def get_chunked_data(self,path):
-
-        try:
-            data_path = DataIngestion(path).extract_data()
-
-            data = Preprocessing(path=data_path).read_data()
-
-            chunked_data = Preprocessing(path).get_text_chunks(data)
-
-            return chunked_data
-        
-        except Exception as e:
-            raise CustomException(e,sys)
+   
 
     def get_vector_db(self):
 
         try:
 
+            logging.info("Configuring Local DataBase ")
             embed_model = ModelAccessing().get_Embedding_model()
             
-            chunked_data = self.get_chunked_data(path="D:\Personal projects\Medical_Chatbot\The-Gale-Encyclopedia-of-Medicine-3rd-Edition-staibabussalamsula.ac_.id_.pdf")
+            vector_db  = FAISS.load_local('faiss_index',embeddings=embed_model,allow_dangerous_deserialization=True)
 
-            vector_db  = VectorDB().create_vector_db(chunked_data,embed_model)
-
+            logging.info("Local Database configured ")
             return vector_db
         
         except Exception as e:
@@ -82,7 +71,7 @@ class QueryEngine:
                 chain_type_kwargs = self.chain_type_kwargs
             )
 
-            response = qa(question)
+            response = qa.invoke(question)
             
             return (response['query'],response['result']) 
 
@@ -93,4 +82,4 @@ class QueryEngine:
 if __name__ == "__main__":
     query = QueryEngine().query('what is Acne')
     print("Response : ")
-    print(query)
+    print(query[1])
