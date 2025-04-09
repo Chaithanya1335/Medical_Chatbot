@@ -1,0 +1,38 @@
+[ 2025-04-09 11:58:26,552 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-09 11:58:26,554 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 11:58:26,554 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 11:58:26,554 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-09 11:58:27,145 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-09 11:58:27,146 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-09 11:58:27,146 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-04-09 11:58:27,146 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 11:58:27,146 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 11:58:27,147 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-04-09 11:58:27,231 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-04-09 11:58:27,244 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-04-09 11:58:27,245 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-04-09 11:58:27,245 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-04-09 11:58:27,750 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-04-09 11:58:27,762 ] 185 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+[ 2025-04-09 11:58:27,846 ] 55 root - INFO - Local Database configured 
+[ 2025-04-09 11:58:53,972 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-09 11:58:53,972 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 11:58:53,972 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 11:58:53,972 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-09 11:58:53,999 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-09 11:58:53,999 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-09 11:58:53,999 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-04-09 11:58:53,999 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 11:58:53,999 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 11:58:53,999 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-04-09 11:58:54,001 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-04-09 11:58:54,050 ] 55 root - INFO - Local Database configured 
+[ 2025-04-09 11:58:57,520 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-04-09 12:03:55,484 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-04-09 12:05:16,704 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-04-09 12:05:38,926 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+[ 2025-04-09 12:05:38,927 ] 1048 groq._base_client - INFO - Retrying request to /openai/v1/chat/completions in 15.000000 seconds
+[ 2025-04-09 12:05:55,491 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-04-09 12:07:06,140 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-04-09 12:12:29,914 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

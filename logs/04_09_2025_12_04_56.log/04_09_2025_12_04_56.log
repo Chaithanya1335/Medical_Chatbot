@@ -1,0 +1,36 @@
+[ 2025-04-09 12:04:56,991 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-09 12:04:56,991 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 12:04:56,991 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 12:04:56,992 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-09 12:04:57,059 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-09 12:04:57,059 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-09 12:04:57,060 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-04-09 12:04:57,060 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 12:04:57,060 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 12:04:57,060 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-04-09 12:04:57,157 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-04-09 12:04:57,213 ] 55 root - INFO - Local Database configured 
+[ 2025-04-09 12:05:03,415 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-09 12:05:03,416 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 12:05:03,416 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 12:05:03,416 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-09 12:05:03,476 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-09 12:05:03,476 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-09 12:05:03,477 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-04-09 12:05:03,477 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 12:05:03,477 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 12:05:03,477 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-04-09 12:05:03,484 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-04-09 12:05:03,597 ] 55 root - INFO - Local Database configured 
+[ 2025-04-09 12:05:14,458 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-09 12:05:14,458 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 12:05:14,458 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 12:05:14,459 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-09 12:05:14,481 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-09 12:05:14,481 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-09 12:05:14,481 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-04-09 12:05:14,481 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-09 12:05:14,481 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-09 12:05:14,481 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-04-09 12:05:14,484 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-04-09 12:05:14,530 ] 55 root - INFO - Local Database configured 
