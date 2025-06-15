@@ -1,0 +1,9 @@
+[ 2025-06-07 22:20:41,468 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-06-07 22:20:41,468 ] 25 root - INFO - GETTING API KEY
+[ 2025-06-07 22:20:41,468 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-06-07 22:20:45,715 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-06-07 22:20:45,715 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-06-07 22:20:49,341 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-06-07 22:20:49,388 ] 25 root - INFO - Data Ingestion Started
+[ 2025-06-07 22:20:49,388 ] 29 root - INFO - Data Extraction Started
+[ 2025-06-07 22:23:18,703 ] 57 root - ERROR - Error in Data Ingestion: Error loading D:\Personal projects\Medical_Chatbot\Data\train_data_chatbot.csv

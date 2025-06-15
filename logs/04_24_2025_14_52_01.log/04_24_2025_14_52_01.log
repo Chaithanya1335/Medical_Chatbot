@@ -1,0 +1,6 @@
+[ 2025-04-24 14:52:13,187 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:52:13,187 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:52:13,187 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:52:13,187 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:52:13,830 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:52:13,845 ] 39 root - INFO -  Prompt Template Created 

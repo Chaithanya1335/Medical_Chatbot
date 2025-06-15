@@ -1,0 +1,67 @@
+[ 2025-04-24 14:54:03,957 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:54:03,958 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:54:03,958 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:54:03,958 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:54:04,596 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:54:04,596 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:54:16,783 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:54:16,783 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:54:16,785 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:54:16,785 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:54:16,844 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:54:16,844 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:54:16,858 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-04-24 14:54:16,858 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:54:16,858 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:54:16,858 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-04-24 14:54:16,911 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-04-24 14:54:16,921 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-04-24 14:54:16,921 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-04-24 14:54:16,921 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-04-24 14:54:16,970 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-04-24 14:54:16,991 ] 185 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+[ 2025-04-24 14:54:17,091 ] 55 root - INFO - Local Database configured 
+[ 2025-04-24 14:54:22,659 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-04-24 14:54:35,931 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:54:35,931 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:54:35,931 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:54:35,932 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:54:35,997 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:54:35,997 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:55:04,094 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:55:04,096 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:55:04,097 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:55:04,097 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:55:04,159 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:55:04,160 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:55:46,145 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:55:46,145 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:55:46,145 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:55:46,147 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:55:46,201 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:55:46,209 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:56:34,874 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:56:34,874 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:56:34,874 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:56:34,874 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:56:34,939 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:56:34,939 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:59:04,648 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:59:04,648 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:59:04,648 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:59:04,650 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:59:04,707 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:59:04,707 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:59:29,189 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:59:29,189 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:59:29,191 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:59:29,191 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:59:29,241 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:59:29,241 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 15:03:34,555 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 15:03:34,555 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 15:03:34,555 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 15:03:34,555 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 15:03:34,616 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 15:03:34,619 ] 39 root - INFO -  Prompt Template Created 

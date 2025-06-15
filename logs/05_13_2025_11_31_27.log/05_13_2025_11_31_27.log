@@ -1,0 +1,26 @@
+[ 2025-05-13 11:31:39,951 ] 14 root - INFO - Creating Prompt Template
+[ 2025-05-13 11:31:39,952 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:31:39,952 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 11:31:39,952 ] 47 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 11:31:40,700 ] 52 root - INFO - LLM Model Accessed
+[ 2025-05-13 11:31:40,700 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-05-13 11:32:13,111 ] 14 root - INFO - Creating Prompt Template
+[ 2025-05-13 11:32:13,112 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:32:13,112 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 11:32:13,113 ] 47 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 11:32:13,166 ] 52 root - INFO - LLM Model Accessed
+[ 2025-05-13 11:32:13,166 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-05-13 11:32:13,177 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-05-13 11:32:13,178 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:32:13,178 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 11:32:13,179 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-05-13 11:32:44,742 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-05-13 11:32:44,743 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-05-13 11:32:49,124 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-05-13 11:32:49,145 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-05-13 11:32:49,145 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-05-13 11:32:49,146 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-05-13 11:32:49,591 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-05-13 11:32:49,615 ] 185 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+[ 2025-05-13 11:32:49,716 ] 55 root - INFO - Local Database configured 

@@ -14,4 +14,3 @@ src/Components/Vector_db.py
 src/Components/__init__.py
 src/Pipeline/Query_Engine.py
 src/Pipeline/__init__.py
-src/Pipeline/training_pipeline.py

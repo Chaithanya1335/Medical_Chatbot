@@ -1,0 +1,21 @@
+[ 2025-05-13 11:55:22,013 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:55:22,013 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 11:55:22,013 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-05-13 11:55:40,036 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-05-13 11:55:40,036 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-05-13 11:55:42,982 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-05-13 11:55:43,051 ] 38 root - INFO - Data Preprocessing Entered
+[ 2025-05-13 11:55:43,448 ] 42 root - INFO - Unnecessary Characters Removed
+[ 2025-05-13 11:55:43,450 ] 44 root - INFO - Stopword Removal Process Started
+[ 2025-05-13 11:55:49,656 ] 56 root - INFO - Data Preprocessing Completed
+[ 2025-05-13 11:55:49,684 ] 72 root - INFO - Text Chunking Started
+[ 2025-05-13 11:55:52,303 ] 75 root - INFO - Text Chunking Completed
+[ 2025-05-13 11:55:52,303 ] 15 root - INFO - Creating Vector DB...
+[ 2025-05-13 11:57:50,486 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-05-13 11:57:50,489 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-05-13 11:57:50,489 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-05-13 11:57:50,847 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-05-13 11:57:50,853 ] 185 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+[ 2025-05-13 11:57:50,924 ] 20 root - INFO - Vector DB created successfully.
+[ 2025-05-13 11:57:50,944 ] 24 root - INFO - Local DataBase is created

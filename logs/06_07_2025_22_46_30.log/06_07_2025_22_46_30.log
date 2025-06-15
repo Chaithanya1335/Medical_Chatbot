@@ -1,0 +1,9 @@
+[ 2025-06-07 22:46:32,876 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-06-07 22:46:32,876 ] 25 root - INFO - GETTING API KEY
+[ 2025-06-07 22:46:32,876 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-06-07 22:46:37,050 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-06-07 22:46:37,053 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-06-07 22:46:42,284 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-06-07 22:46:42,324 ] 26 root - INFO - Data Ingestion Started
+[ 2025-06-07 22:46:42,324 ] 30 root - INFO - Data Extraction Started
+[ 2025-06-07 22:50:35,971 ] 60 root - ERROR - Error in Data Ingestion: 

@@ -1,8 +1,6 @@
-Metadata-Version: 2.2
+Metadata-Version: 2.1
 Name: Medical-Bot
 Version: 1.0.0
 Author: M.Gnana Chaithanya
 Author-email: m.gnanachaithanya12@gmail.com
 License-File: LICENSE
-Dynamic: author
-Dynamic: author-email

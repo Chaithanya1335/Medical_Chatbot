@@ -1,0 +1,20 @@
+[ 2025-05-13 11:44:30,854 ] 15 root - INFO - Creating Prompt Template
+[ 2025-05-13 11:44:30,854 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:44:30,854 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 11:44:30,854 ] 47 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 11:44:30,996 ] 52 root - INFO - LLM Model Accessed
+[ 2025-05-13 11:44:30,996 ] 40 root - INFO -  Prompt Template Created 
+[ 2025-05-13 11:44:30,996 ] 51 root - INFO - Configuring Local DataBase 
+[ 2025-05-13 11:44:30,996 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:44:30,996 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 11:44:30,996 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-05-13 11:44:35,949 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-05-13 11:44:35,949 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-05-13 11:44:38,847 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-05-13 11:44:38,850 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-05-13 11:44:38,850 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-05-13 11:44:38,850 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-05-13 11:44:38,856 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-05-13 11:44:38,868 ] 185 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+[ 2025-05-13 11:44:38,888 ] 56 root - INFO - Local Database configured 

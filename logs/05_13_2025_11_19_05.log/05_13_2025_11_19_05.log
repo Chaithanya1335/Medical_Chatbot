@@ -1,0 +1,24 @@
+[ 2025-05-13 11:19:29,395 ] 14 root - INFO - Creating Prompt Template
+[ 2025-05-13 11:19:29,396 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:19:29,396 ] 24 root - INFO - Configuring Gemini
+[ 2025-05-13 11:19:29,397 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 11:19:30,255 ] 54 root - INFO - LLM Model Accessed
+[ 2025-05-13 11:19:30,256 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-05-13 11:19:44,537 ] 14 root - INFO - Creating Prompt Template
+[ 2025-05-13 11:19:44,537 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:19:44,538 ] 24 root - INFO - Configuring Gemini
+[ 2025-05-13 11:19:44,538 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 11:19:44,605 ] 54 root - INFO - LLM Model Accessed
+[ 2025-05-13 11:19:44,605 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-05-13 11:19:44,614 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-05-13 11:19:44,614 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 11:19:44,615 ] 24 root - INFO - Configuring Gemini
+[ 2025-05-13 11:19:44,615 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-05-13 11:19:44,769 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-05-13 11:19:44,785 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-05-13 11:19:44,785 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-05-13 11:19:44,786 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-05-13 11:19:45,307 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-05-13 11:19:45,332 ] 185 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+[ 2025-05-13 11:19:45,470 ] 55 root - INFO - Local Database configured 

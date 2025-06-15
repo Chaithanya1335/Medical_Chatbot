@@ -1,0 +1,19 @@
+[ 2025-04-24 14:40:32,055 ] 14 root - INFO - Creating Prompt Template
+[ 2025-04-24 14:40:32,059 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:40:32,059 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:40:32,059 ] 49 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-04-24 14:40:32,783 ] 54 root - INFO - LLM Model Accessed
+[ 2025-04-24 14:40:32,783 ] 39 root - INFO -  Prompt Template Created 
+[ 2025-04-24 14:40:32,783 ] 50 root - INFO - Configuring Local DataBase 
+[ 2025-04-24 14:40:32,783 ] 21 root - INFO - Entered Model Accessing Component
+[ 2025-04-24 14:40:32,783 ] 24 root - INFO - Configuring Gemini
+[ 2025-04-24 14:40:32,783 ] 36 root - INFO - Accessing models/text-embedding-004 using gemini api key 
+[ 2025-04-24 14:40:32,848 ] 40 root - INFO -  Embedding Model Accessed
+[ 2025-04-24 14:40:32,864 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-04-24 14:40:32,864 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-04-24 14:40:32,864 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-04-24 14:40:32,921 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-04-24 14:40:32,944 ] 185 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes.
+[ 2025-04-24 14:40:33,036 ] 55 root - INFO - Local Database configured 
+[ 2025-04-24 14:40:37,862 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

@@ -1,0 +1,57 @@
+[ 2025-05-13 12:18:15,408 ] 15 root - INFO - Creating Prompt Template
+[ 2025-05-13 12:18:15,409 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 12:18:15,409 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 12:18:15,410 ] 47 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 12:18:15,750 ] 52 root - INFO - LLM Model Accessed
+[ 2025-05-13 12:18:15,750 ] 40 root - INFO -  Prompt Template Created 
+[ 2025-05-13 12:18:39,830 ] 15 root - INFO - Creating Prompt Template
+[ 2025-05-13 12:18:39,830 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 12:18:39,831 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 12:18:39,831 ] 47 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 12:18:39,862 ] 52 root - INFO - LLM Model Accessed
+[ 2025-05-13 12:18:39,862 ] 40 root - INFO -  Prompt Template Created 
+[ 2025-05-13 12:18:44,127 ] 51 root - INFO - Configuring Local DataBase 
+[ 2025-05-13 12:18:44,128 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 12:18:44,128 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 12:18:44,129 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-05-13 12:18:47,571 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-05-13 12:18:47,571 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-05-13 12:18:50,792 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-05-13 12:18:50,797 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-05-13 12:18:50,797 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-05-13 12:18:50,797 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-05-13 12:18:50,824 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-05-13 12:18:50,833 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+[ 2025-05-13 12:18:50,868 ] 56 root - INFO - Local Database configured 
+[ 2025-05-13 12:18:52,976 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-05-13 12:24:13,559 ] 15 root - INFO - Creating Prompt Template
+[ 2025-05-13 12:24:13,560 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 12:24:13,560 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 12:24:13,560 ] 47 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 12:24:13,588 ] 52 root - INFO - LLM Model Accessed
+[ 2025-05-13 12:24:13,588 ] 40 root - INFO -  Prompt Template Created 
+[ 2025-05-13 12:24:14,344 ] 51 root - INFO - Configuring Local DataBase 
+[ 2025-05-13 12:24:14,345 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 12:24:14,345 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 12:24:14,345 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-05-13 12:24:14,350 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-05-13 12:24:14,350 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-05-13 12:24:17,461 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-05-13 12:24:17,520 ] 56 root - INFO - Local Database configured 
+[ 2025-05-13 12:24:19,486 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+[ 2025-05-13 12:26:36,583 ] 15 root - INFO - Creating Prompt Template
+[ 2025-05-13 12:26:36,583 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 12:26:36,583 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 12:26:36,583 ] 47 root - INFO - Accessing llama3-8b-8192 Model using chatgroq  api key
+[ 2025-05-13 12:26:36,608 ] 52 root - INFO - LLM Model Accessed
+[ 2025-05-13 12:26:36,608 ] 40 root - INFO -  Prompt Template Created 
+[ 2025-05-13 12:26:37,259 ] 51 root - INFO - Configuring Local DataBase 
+[ 2025-05-13 12:26:37,260 ] 22 root - INFO - Entered Model Accessing Component
+[ 2025-05-13 12:26:37,260 ] 25 root - INFO - GETTING API KEY
+[ 2025-05-13 12:26:37,260 ] 34 root - INFO - Accessing all-MiniLM-L6-v2 using Hugging Face api key 
+[ 2025-05-13 12:26:37,264 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-05-13 12:26:37,264 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-05-13 12:26:39,956 ] 38 root - INFO -  Embedding Model Accessed
+[ 2025-05-13 12:26:39,994 ] 56 root - INFO - Local Database configured 
+[ 2025-05-13 12:26:44,164 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"

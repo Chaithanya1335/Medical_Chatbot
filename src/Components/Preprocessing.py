@@ -9,70 +9,89 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 import re
 from pathlib import Path
 
-
 class Preprocessing:
-    def __init__(self, path:Path):
+    """
+    A utility class for reading, cleaning, and chunking textual data for LLM pipelines.
+    """
+
+    def __init__(self, path: Path):
         self.path = path
-    
-    def read_data(self):
+
+        # Ensure required NLTK resources are downloaded
         try:
-            path = self.path
-            if not os.path.exists(path):
-                raise CustomException("The path does not exist")
-            with open(path,encoding='utf-8') as f:
+            nltk.data.find('tokenizers/punkt')
+            nltk.data.find('corpora/stopwords')
+        except LookupError:
+            nltk.download('punkt')
+            nltk.download('stopwords')
+
+    def read_data(self) -> str:
+        """
+        Reads text data from the given file path.
+
+        Returns:
+            str: Raw text from the file.
+        """
+        try:
+            if not os.path.exists(self.path):
+                raise CustomException("The specified path does not exist.")
+            with open(self.path, encoding='utf-8') as f:
                 data = f.read()
+            logging.info(f"Data successfully read from {self.path}")
             return data
-        
         except Exception as e:
-            raise CustomException(e,sys)
-        
-    def preprocess_text(self,text:str):
+            raise CustomException(e, sys)
+
+    def preprocess_text(self, text: str) -> str:
         """
-        Preprocess the text by removing special characters, converting to lowercase, and removing stopwords.
+        Preprocesses text by removing special characters, converting to lowercase, and removing stopwords.
 
-        Args: text (str): The text to be preprocessed.
+        Args:
+            text (str): Raw input text.
 
-        Returns: str: The preprocessed text.
+        Returns:
+            str: Cleaned and processed text.
         """
         try:
-            logging.info("Data Preprocessing Entered")
-            text = text.lower()  # Convert to lowercase
-            text = re.sub('[^\w\s]','',text)
-            text= text.replace('\n','')
-            logging.info("Unnecessary Characters Removed")
+            logging.info("Starting text preprocessing...")
 
-            logging.info("Stopword Removal Process Started")
-            # Tokenize the text into sentences
+            text = text.lower()  # Lowercase
+            text = re.sub(r'[^\w\s]', '', text)  # Remove punctuation
+            text = text.replace('\n', ' ')  # Remove newlines
+
+            logging.info("Removed special characters and converted to lowercase.")
+
+            stop_words = set(stopwords.words('english'))
             sentences = sent_tokenize(text)
 
-            # Tokenize each sentence into words and remove stopwords
-            stop_words = set(stopwords.words('english'))
-            processed_sentences = ''
+            processed_text = []
             for sentence in sentences:
                 words = word_tokenize(sentence)
                 words = [word for word in words if word not in stop_words]
-                processed_sentences=' '.join(words)+" "
+                processed_text.append(' '.join(words))
 
-            logging.info("Data Preprocessing Completed")
-            return processed_sentences
+            cleaned_text = ' '.join(processed_text)
+            logging.info("Text preprocessing completed.")
+            return cleaned_text
+
         except Exception as e:
-            raise CustomException(e,sys)
-    
-    def get_text_chunks(self,text:str):
+            raise CustomException(e, sys)
 
+    def get_text_chunks(self, text: str) -> list:
         """
-        Split the text into chunks of 1000 characters each.
+        Splits the preprocessed text into overlapping chunks for embedding and vector DB.
 
-        Args: text (str): The text to be split.
+        Args:
+            text (str): The preprocessed text.
 
-        Returns: list: A list of text chunks.
-
+        Returns:
+            list: A list of chunked text segments.
         """
         try:
-            logging.info("Text Chunking Started")
+            logging.info("Splitting text into chunks...")
             text_splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=1000)
             chunks = text_splitter.split_text(text)
-            logging.info("Text Chunking Completed")
+            logging.info(f"Text chunking completed. Total chunks: {len(chunks)}")
             return chunks
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e, sys)
