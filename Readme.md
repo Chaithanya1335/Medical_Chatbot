@@ -11,7 +11,6 @@
 
 ---
 
-### ✅ **README.md**
 
 ```markdown
 # 🩺 Medi Bot – AI-Powered Skin Health Assistant 🤖
