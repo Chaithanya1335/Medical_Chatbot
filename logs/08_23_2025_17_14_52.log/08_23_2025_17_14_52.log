@@ -1,0 +1,21 @@
+[ 2025-08-23 17:15:16,039 ] 27 root - INFO - Creating Prompt Template
+[ 2025-08-23 17:15:16,039 ] 22 root - INFO - Initializing ModelAccessing...
+[ 2025-08-23 17:15:16,039 ] 28 root - INFO - ModelAccessing initialized successfully.
+[ 2025-08-23 17:15:16,040 ] 57 root - INFO - Loading Groq LLM model: llama3-8b-8192
+[ 2025-08-23 17:15:16,288 ] 63 root - INFO - LLM model loaded successfully.
+[ 2025-08-23 17:15:16,288 ] 46 root - INFO - Prompt Template Created
+[ 2025-08-23 17:15:16,292 ] 60 root - INFO - Configuring Local DataBase 
+[ 2025-08-23 17:15:16,292 ] 22 root - INFO - Initializing ModelAccessing...
+[ 2025-08-23 17:15:16,292 ] 28 root - INFO - ModelAccessing initialized successfully.
+[ 2025-08-23 17:15:16,293 ] 41 root - INFO - Loading HuggingFace embedding model: all-MiniLM-L6-v2
+[ 2025-08-23 17:15:49,474 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-08-23 17:15:49,476 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-08-23 17:15:54,510 ] 43 root - INFO - Embedding model loaded successfully.
+[ 2025-08-23 17:15:54,518 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-08-23 17:15:54,518 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-08-23 17:15:54,518 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-08-23 17:15:54,858 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-08-23 17:15:54,868 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+[ 2025-08-23 17:15:54,920 ] 69 root - INFO - Local Database configured
+[ 2025-08-23 17:15:56,168 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
