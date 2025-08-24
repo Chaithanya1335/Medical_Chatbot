@@ -1,7 +1,6 @@
 chatbot/
 chat
 .env
-faiss_index
 runs
 Data
 skin
