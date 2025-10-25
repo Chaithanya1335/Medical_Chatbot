@@ -56,7 +56,7 @@ class ModelAccessing:
         try:
             logging.info("Loading Groq LLM model: llama3-8b-8192")
             llm_model = ChatGroq(
-                model='llama3-8b-8192',
+                model='llama-3.1-8b-instant',
                 temperature=0.2,
                 api_key=self.GROQ_API_KEY
             )

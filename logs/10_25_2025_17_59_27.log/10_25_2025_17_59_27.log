@@ -1,0 +1,22 @@
+[ 2025-10-25 18:00:25,412 ] 27 root - INFO - Creating Prompt Template
+[ 2025-10-25 18:00:25,414 ] 22 root - INFO - Initializing ModelAccessing...
+[ 2025-10-25 18:00:25,414 ] 28 root - INFO - ModelAccessing initialized successfully.
+[ 2025-10-25 18:00:25,415 ] 57 root - INFO - Loading Groq LLM model: llama3-8b-8192
+[ 2025-10-25 18:00:25,671 ] 63 root - INFO - LLM model loaded successfully.
+[ 2025-10-25 18:00:25,671 ] 46 root - INFO - Prompt Template Created
+[ 2025-10-25 18:00:25,675 ] 60 root - INFO - Configuring Local DataBase 
+[ 2025-10-25 18:00:25,675 ] 22 root - INFO - Initializing ModelAccessing...
+[ 2025-10-25 18:00:25,675 ] 28 root - INFO - ModelAccessing initialized successfully.
+[ 2025-10-25 18:00:25,675 ] 41 root - INFO - Loading HuggingFace embedding model: all-MiniLM-L6-v2
+[ 2025-10-25 18:01:16,099 ] 211 sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+[ 2025-10-25 18:01:16,099 ] 219 sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+[ 2025-10-25 18:01:22,104 ] 1717 huggingface_hub.file_download - WARNING - Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+[ 2025-10-25 18:02:17,395 ] 43 root - INFO - Embedding model loaded successfully.
+[ 2025-10-25 18:02:17,402 ] 113 faiss.loader - INFO - Loading faiss with AVX512 support.
+[ 2025-10-25 18:02:17,402 ] 118 faiss.loader - INFO - Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+[ 2025-10-25 18:02:17,402 ] 125 faiss.loader - INFO - Loading faiss with AVX2 support.
+[ 2025-10-25 18:02:17,904 ] 127 faiss.loader - INFO - Successfully loaded faiss with AVX2 support.
+[ 2025-10-25 18:02:17,921 ] 186 faiss - INFO - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+[ 2025-10-25 18:02:18,021 ] 69 root - INFO - Local Database configured
+[ 2025-10-25 18:02:18,487 ] 1025 httpx - INFO - HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 400 Bad Request"
