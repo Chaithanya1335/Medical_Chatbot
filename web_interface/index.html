@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConsult AI — Your Intelligent Medical Assistant</title>
+    <meta name="description" content="Get evidence-backed medical answers, upload images for AI analysis, and save your consultations securely.">
+    <meta name="theme-color" content="#09090b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2314b8a6'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><path d='M18 32h28' stroke='white' stroke-width='5' stroke-linecap='round'/><path d='M32 18v28' stroke='white' stroke-width='5' stroke-linecap='round'/></svg>">
+    <link rel="stylesheet" href="css/chat_style.css?v=4">
+    <script src="js/config.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/chat_interface.js" defer></script>
+</head>
+<body data-theme="dark">
+
+<!-- ─── HEADER ─────────────────────────────────── -->
+<header class="site-header" id="siteHeader">
+    <a href="/" class="brand" id="brandMark">
+        <span class="brand-icon">+</span>
+        MediConsult AI
+    </a>
+    <div class="header-actions" id="siteActions">
+        <label class="language-pill" for="languageSelect">
+            <span data-i18n="languageLabel">Language</span>
+            <select id="languageSelect" aria-label="Language">
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+                <option value="fr">FR</option>
+                <option value="de">DE</option>
+                <option value="hi">HI</option>
+                <option value="ta">TA</option>
+                <option value="te">TE</option>
+            </select>
+        </label>
+        <button class="btn-icon btn-secondary" id="themeToggle" type="button" aria-label="Toggle theme">◐</button>
+        <button class="btn-ghost btn-sm" id="notificationToggle" type="button" aria-label="Notifications">
+            🔔<span class="notification-badge" id="notificationBadge" style="display:none">0</span>
+        </button>
+        <!-- Logged-out state -->
+        <a class="btn btn-primary btn-sm" id="headerAuthLink" href="/login.html" data-i18n="staffLogin">Get Started</a>
+        <!-- Logged-in state (hidden by default, shown by JS) -->
+        <div class="header-user" id="headerUserInfo" hidden>
+            <div class="header-avatar" id="userAvatar">MC</div>
+            <span id="userName" style="font-size:.8125rem;font-weight:600">User</span>
+        </div>
+    </div>
+</header>
+
+<!-- Notification Panel -->
+<aside class="notification-panel" id="notificationPanel" aria-label="Notifications">
+    <div class="panel-header">
+        <h2 data-i18n="notificationsTitle">Notifications</h2>
+        <button class="btn-ghost btn-sm" id="clearNotificationsBtn" type="button">Clear</button>
+    </div>
+    <div class="notification-list" id="notificationList"></div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- LANDING PAGE (shown when NOT logged in)         -->
+<!-- ═══════════════════════════════════════════════ -->
+<main class="landing" id="landingView">
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge">AI-Powered Medical Assistant</div>
+            <h1>Get <span>Evidence-Backed</span><br>Health Answers Instantly</h1>
+            <p>Ask medical questions and receive grounded responses backed by clinical sources. Upload images for AI-powered analysis — all in one secure workspace.</p>
+            <div class="hero-cta">
+                <a href="/login.html" class="btn btn-primary" id="heroPrimaryBtn">Start Free Consultation →</a>
+                <a href="#features" class="btn btn-secondary">See How It Works</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="section-label">
+            <span>Features</span>
+            <h2>Everything you need for informed health decisions</h2>
+            <p>Built with clinical accuracy and user safety as top priorities.</p>
+        </div>
+        <div class="features-grid">
+            <article class="feature-card">
+                <div class="feature-icon teal">🔬</div>
+                <h3>Evidence-Backed Answers</h3>
+                <p>Every response includes source citations and a confidence score so you can verify the information.</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon blue">📸</div>
+                <h3>Image Analysis</h3>
+                <p>Upload skin images and get AI-powered visual analysis with detailed findings and annotations.</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon purple">🌍</div>
+                <h3>7 Languages Supported</h3>
+                <p>Ask questions in English, Spanish, French, German, Hindi, Tamil, or Telugu — get answers in your language.</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon amber">🛡️</div>
+                <h3>Safety First</h3>
+                <p>Built-in safety rules prevent harmful advice. High-risk queries are flagged and handled with extra caution.</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon green">💬</div>
+                <h3>Saved Conversations</h3>
+                <p>Your consultations are saved to your account. Revisit past sessions, export results, and track your health journey.</p>
+            </article>
+            <article class="feature-card">
+                <div class="feature-icon rose">⚡</div>
+                <h3>Real-Time Updates</h3>
+                <p>Live notifications keep you informed about analysis progress, new responses, and system events.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="steps">
+        <div class="section-label">
+            <span>How it works</span>
+            <h2>Three simple steps to get started</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-num">1</div>
+                <h3>Create Account</h3>
+                <p>Sign up in seconds with just your email. Your data stays private and secure.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">2</div>
+                <h3>Ask Your Question</h3>
+                <p>Type a health question or upload an image. Be as specific as you need.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">3</div>
+                <h3>Get Grounded Answers</h3>
+                <p>Receive evidence-backed responses with sources, confidence levels, and follow-up options.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="landing-cta">
+        <div class="landing-cta-box">
+            <h2>Ready to start your consultation?</h2>
+            <p>Join thousands using AI-assisted health information responsibly.</p>
+            <a href="/login.html" class="btn btn-primary">Create Free Account →</a>
+        </div>
+    </section>
+
+    <footer class="landing-footer">
+        <p>⚕️ MediConsult AI is for <strong>educational purposes only</strong>. Always consult a licensed clinician for diagnosis or treatment.</p>
+        <p>Built with ❤️ using FastAPI, LangChain, and FAISS · <a href="/docs" target="_blank">API Docs</a></p>
+    </footer>
+</main>
+
+<!-- ═══════════════════════════════════════════════ -->
+<!-- CHAT WORKSPACE (shown when logged in)           -->
+<!-- ═══════════════════════════════════════════════ -->
+<main id="appView" hidden>
+    <div class="app-layout" id="workspace">
+
+        <!-- Sidebar -->
+        <aside class="app-sidebar">
+            <div class="sidebar-top">
+                <button class="btn btn-primary btn-sm" id="newChatBtn" type="button" style="width:100%" data-i18n="newSession">+ New Chat</button>
+                <input id="sessionSearchInput" class="sidebar-search" type="search" placeholder="Search chats…" aria-label="Search">
+            </div>
+            <div class="session-list" id="chatHistory"></div>
+            <div class="sidebar-bottom">
+                <a class="btn-ghost btn-sm" id="sidebarAccountLink" href="/login.html">Account</a>
+                <button class="btn-ghost btn-sm" id="logoutBtn" type="button" data-i18n="resetDemo">Sign out</button>
+                <button class="btn-ghost btn-sm" id="refreshSessionsBtn" type="button" data-i18n="refresh" style="margin-left:auto">↻</button>
+            </div>
+        </aside>
+
+        <!-- Chat Area -->
+        <section class="chat-area">
+            <div class="chat-top">
+                <div style="display:flex;align-items:center;gap:.75rem;min-width:0">
+                    <span class="chat-title" id="activeSessionTitle" data-i18n="workspaceDefaultTitle">New conversation</span>
+                    <span id="activeSessionTimestamp" style="font-size:.75rem;color:var(--text3);white-space:nowrap"></span>
+                </div>
+                <div class="chat-top-actions">
+                    <div class="service-tabs" id="serviceTabs" role="tablist">
+                        <button class="service-tab is-active" type="button" data-service="chat" aria-selected="true">💬 Chat</button>
+                        <button class="service-tab" type="button" data-service="vision" aria-selected="false">📸 Image</button>
+                        <button class="service-tab" type="button" data-service="history" aria-selected="false">📂 History</button>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" id="exportChatBtn" type="button" data-i18n="exportSession">Export</button>
+                </div>
+            </div>
+
+            <p class="service-hint" id="serviceHint" style="padding:0 1.25rem;margin:0"></p>
+
+            <!-- Vision panel -->
+            <section class="service-panel" id="visionPanel" hidden>
+                <div class="service-panel__header">
+                    <p class="eyebrow">Vision workflow</p>
+                    <h3>Upload a skin image to analyze</h3>
+                    <p class="service-panel__subtitle">Upload an image and run AI analysis. Results are saved to your active session.</p>
+                </div>
+                <div class="service-panel__grid">
+                    <article class="rail-card"><strong>Step 1</strong><p>Select JPG/PNG/WEBP under 5 MB</p></article>
+                    <article class="rail-card"><strong>Step 2</strong><p>Run analysis to detect visual signals</p></article>
+                    <article class="rail-card"><strong>Step 3</strong><p>Switch to Chat for follow-ups</p></article>
+                </div>
+            </section>
+
+            <!-- History panel -->
+            <section class="service-panel" id="historyPanel" hidden>
+                <div class="service-panel__header">
+                    <p class="eyebrow">Session history</p>
+                    <h3>Browse past conversations</h3>
+                    <p class="service-panel__subtitle">Select a session from the sidebar to load it.</p>
+                </div>
+            </section>
+
+            <!-- Messages -->
+            <div class="messages-area" id="messagesArea" aria-live="polite">
+                <div class="welcome-card" id="welcomeScreen">
+                    <div class="welcome-card__header">
+                        <span class="eyebrow" data-i18n="welcomeEyebrow">Clinical workspace</span>
+                        <h3 data-i18n="welcomeTitle">What can I help you with today?</h3>
+                        <p data-i18n="welcomeSubtitle">Choose a quick prompt below or type your own health question.</p>
+                    </div>
+                    <div class="prompt-grid" id="quickPromptGrid"></div>
+                    <div class="trust-checklist">
+                        <article>
+                            <strong data-i18n="checkOneTitle">📄 Source Citations</strong>
+                            <p data-i18n="checkOneBody">Answers include evidence snippets and confidence scores.</p>
+                        </article>
+                        <article>
+                            <strong data-i18n="checkTwoTitle">🛡️ Safety Rules</strong>
+                            <p data-i18n="checkTwoBody">High-risk queries are flagged and handled carefully.</p>
+                        </article>
+                        <article>
+                            <strong data-i18n="checkThreeTitle">💾 Auto-Save</strong>
+                            <p data-i18n="checkThreeBody">Conversations save automatically to your account.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Composer -->
+            <div class="composer" id="composerArea">
+                <div class="image-preview" id="imagePreviewWrapper" hidden aria-live="polite">
+                    <img id="imagePreview" alt="Selected image for analysis">
+                    <div class="image-preview__meta">
+                        <p id="imagePreviewName">Image selected</p>
+                        <span id="imagePreviewSize">0 MB</span>
+                    </div>
+                    <div class="image-preview__actions">
+                        <button class="btn btn-secondary btn-sm" id="analyzeImageBtn" type="button" data-i18n="analyzeImage" aria-describedby="analyzeHint">Analyze</button>
+                        <button class="btn-ghost btn-sm" id="removeImageBtn" type="button" data-i18n="removeImage">Remove</button>
+                    </div>
+                </div>
+                <div class="composer-shell" id="composerShell" role="form" aria-label="Message composer">
+                    <label class="upload-trigger" for="imageInput" aria-label="Upload image for analysis">
+                        <span aria-hidden="true">📎</span>
+                        <span class="sr-only">Attach image</span>
+                    </label>
+                    <input id="imageInput" type="file" accept="image/jpeg,image/png,image/jpg,image/webp" hidden aria-describedby="fileHint">
+                    <span id="fileHint" class="sr-only">Supported formats: JPG, PNG, WEBP. Maximum size: 5MB.</span>
+                    <textarea id="userInput" rows="1" placeholder="Ask a health question…" aria-label="Your message" aria-describedby="composerNote"></textarea>
+                    <button class="btn btn-primary btn-sm" id="sendBtn" type="button" data-i18n="send" aria-label="Send message (Enter)">Send</button>
+                    <button class="btn btn-primary btn-sm" id="visionAnalyzeBtn" type="button" aria-label="Analyze uploaded image">Analyze</button>
+                </div>
+                <p class="composer-note" id="composerNote" data-i18n="composerNote">For educational purposes only. Always consult a licensed clinician.</p>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Hidden elements for JS compatibility -->
+<div id="opsSnapshot" hidden></div>
+<div id="authModeBadge" hidden></div>
+<div id="workspaceHealthBadge" hidden></div>
+<span id="userEmail" hidden></span>
+<div id="clearSessionSearchBtn" hidden></div>
+
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+</body>
+</html>

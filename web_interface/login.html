@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConsult AI | Sign In</title>
+    <meta name="description" content="Create an account or sign in to MediConsult AI to access secure medical consultations.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/chat_style.css?v=4.0">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="js/config.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/auth.js" defer></script>
+    <style>
+        body {
+            display: grid;
+            place-items: center;
+            padding: 1.5rem;
+            min-height: 100vh;
+        }
+
+        .login-wrapper {
+            width: min(100%, 56rem);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-hero {
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg);
+            border-right: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -20%;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--glow), transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .login-hero .brand-mark__icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            color: #fff;
+            border-radius: 1rem;
+            display: grid;
+            place-items: center;
+        }
+
+        .login-hero h1 {
+            margin: 0 0 0.75rem;
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+        }
+
+        .login-hero p {
+            color: var(--text2);
+            font-size: 0.9375rem;
+            margin: 0;
+            max-width: 28ch;
+        }
+
+        .login-features {
+            display: grid;
+            gap: 0.65rem;
+            margin-top: 2rem;
+            padding: 0;
+            list-style: none;
+        }
+
+        .login-features li {
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--text2);
+        }
+
+        .login-features li::before {
+            content: '✦';
+            color: var(--accent);
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .login-card {
+            padding: 3rem 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-form {
+            display: grid;
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+
+        .auth-form input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            font-size: 0.875rem;
+            transition: all var(--dur) var(--ease);
+        }
+
+        .auth-form input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background: var(--bg2);
+            box-shadow: 0 0 0 3px var(--glow);
+        }
+
+        .auth-form input::placeholder {
+            color: var(--text3);
+        }
+
+        .auth-row {
+            display: grid;
+            gap: 0.65rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            margin-top: 0.25rem;
+        }
+
+        .auth-separator {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 1.25rem 0;
+            color: var(--text3);
+            font-size: 0.8125rem;
+        }
+
+        .auth-separator::before,
+        .auth-separator::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .login-status,
+        .login-helper {
+            color: var(--text3);
+            font-size: 0.8125rem;
+            margin-top: 1rem;
+        }
+
+        .login-actions,
+        .optional-auth {
+            display: flex;
+            gap: 0.65rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 720px) {
+            .login-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .login-hero {
+                padding: 2rem 1.5rem;
+                border-right: none;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .login-features {
+                display: none;
+            }
+
+            .login-card {
+                padding: 2rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <main class="glass-card login-wrapper" id="loginWrapper">
+        <div class="login-hero">
+            <div class="brand-mark__icon">+</div>
+            <h1>Welcome to MediConsult AI</h1>
+            <p>Clinical-grade medical consultation with evidence-backed responses.</p>
+
+            <ul class="login-features">
+                <li>Grounded answers with source evidence</li>
+                <li>Skin image analysis workflow</li>
+                <li>Secure account-based sessions</li>
+                <li>Multi-language support</li>
+                <li>Real-time consultation updates</li>
+            </ul>
+        </div>
+
+        <div class="login-card">
+            <p class="eyebrow">Account</p>
+            <h2 style="margin:0.25rem 0 0.35rem;font-family:var(--font-display);font-size:1.5rem;letter-spacing:-0.03em">Get started</h2>
+            <p style="color:var(--text-muted);font-size:0.875rem;margin:0">Create an account or sign in to save your consultations.</p>
+
+            <form class="auth-form" id="authForm">
+                <input id="fullNameInput" type="text" placeholder="Full name (optional)" autocomplete="name">
+                <input id="emailInput" type="email" placeholder="Email address" required autocomplete="email">
+                <input id="passwordInput" type="password" placeholder="Password (8+ characters)" minlength="8" required
+                    autocomplete="new-password">
+                <div class="auth-row">
+                    <button class="btn btn-primary" id="registerBtn" type="submit">Create account</button>
+                    <button class="btn btn-secondary" id="loginBtn" type="button">Sign in</button>
+                </div>
+            </form>
+
+            <div class="auth-separator">Other options</div>
+            <div class="optional-auth">
+                <div id="googleSection" hidden>
+                    <div id="g_id_signin"></div>
+                </div>
+                <button class="btn btn-ghost btn-sm" id="demoLoginBtn" type="button" hidden>Open demo
+                    account</button>
+            </div>
+
+            <div class="login-actions">
+                <a class="btn btn-secondary btn-sm" href="/">← Back to app</a>
+                <button class="btn btn-ghost btn-sm" id="toggleThemeBtn" type="button">Toggle theme</button>
+            </div>
+
+            <p class="login-helper">Your conversations are stored in the local application database.</p>
+            <p class="login-status" id="loginStatus" style="color:var(--danger)">Loading authentication options…</p>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const currentUser = await window.auth.ensureSession();
+            if (currentUser) {
+                window.location.href = '/';
+                return;
+            }
+
+            const fullNameInput = document.getElementById('fullNameInput');
+            const emailInput = document.getElementById('emailInput');
+            const passwordInput = document.getElementById('passwordInput');
+            const loginStatus = document.getElementById('loginStatus');
+            const registerBtn = document.getElementById('registerBtn');
+            const loginBtn = document.getElementById('loginBtn');
+            const demoButton = document.getElementById('demoLoginBtn');
+            const toggleThemeBtn = document.getElementById('toggleThemeBtn');
+
+            const withPendingState = async (message, action) => {
+                registerBtn.disabled = true;
+                loginBtn.disabled = true;
+                demoButton.disabled = true;
+                loginStatus.textContent = message;
+                try {
+                    await action();
+                } finally {
+                    registerBtn.disabled = false;
+                    loginBtn.disabled = false;
+                    demoButton.disabled = false;
+                }
+            };
+
+            toggleThemeBtn.addEventListener('click', () => {
+                document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            });
+
+            document.getElementById('authForm').addEventListener('submit', async (event) => {
+                event.preventDefault();
+                await withPendingState('Creating account…', async () => {
+                    const user = await window.auth.registerLocal({
+                        fullName: fullNameInput.value.trim(),
+                        email: emailInput.value.trim(),
+                        password: passwordInput.value,
+                    });
+                    loginStatus.textContent = `Signed in as ${user.email}`;
+                    window.location.href = '/';
+                }).catch((error) => {
+                    loginStatus.textContent = error.message;
+                });
+            });
+
+            loginBtn.addEventListener('click', async () => {
+                await withPendingState('Signing in…', async () => {
+                    const user = await window.auth.loginLocal({
+                        email: emailInput.value.trim(),
+                        password: passwordInput.value,
+                    });
+                    loginStatus.textContent = `Signed in as ${user.email}`;
+                    window.location.href = '/';
+                }).catch((error) => {
+                    loginStatus.textContent = error.message;
+                });
+            });
+
+            demoButton.addEventListener('click', async () => {
+                await withPendingState('Opening demo account…', async () => {
+                    await window.auth.loginDemo('Guest Reviewer');
+                    window.location.href = '/';
+                }).catch((error) => {
+                    loginStatus.textContent = error.message;
+                });
+            });
+
+            try {
+                const config = await window.api.getAuthConfig();
+                const authModes = ['Local account access is ready.'];
+                if (config.google_enabled) authModes.push('Google sign-in available.');
+                if (config.demo_enabled) authModes.push('Demo access optional.');
+                loginStatus.textContent = authModes.join(' ');
+
+                if (config.demo_enabled) {
+                    demoButton.hidden = false;
+                }
+
+                if (config.google_enabled && window.google?.accounts?.id) {
+                    document.getElementById('googleSection').hidden = false;
+                    window.google.accounts.id.initialize({
+                        client_id: config.google_client_id,
+                        callback: async ({ credential }) => {
+                            loginStatus.textContent = 'Verifying Google sign-in…';
+                            try {
+                                const payload = await window.api.authenticateGoogle(credential);
+                                window.auth.persistSession(payload);
+                                window.location.href = '/';
+                            } catch (error) {
+                                loginStatus.textContent = error.message;
+                            }
+                        },
+                    });
+
+                    window.google.accounts.id.renderButton(document.getElementById('g_id_signin'), {
+                        theme: 'outline',
+                        size: 'large',
+                        text: 'continue_with',
+                        shape: 'pill',
+                    });
+                }
+            } catch (error) {
+                loginStatus.textContent = error.message;
+            }
+        });
+    </script>
+</body>
+
+</html>

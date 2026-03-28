@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi Bot - Diagnostic & Test Console</title>
+    <style>
+        :root {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #10a37f;
+            --danger-color: #ff5252;
+            --warning-color: #ffb142;
+            --border-color: #404040;
+            --code-bg: #111;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+        }
+
+        .status-badge.online {
+            background: rgba(16, 163, 127, 0.2);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+        }
+
+        .status-badge.offline {
+            background: rgba(255, 82, 82, 0.2);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            flex: 1;
+            min-height: 0;
+            /* Important for scroll */
+        }
+
+        .panel {
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .panel h2 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            padding: 8px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        button:disabled {
+            background: var(--border-color);
+            cursor: not-allowed;
+        }
+
+        button.secondary {
+            background: transparent;
+            border: 1px solid var(--border-color);
+        }
+
+        .logs-container {
+            flex: 1;
+            background: var(--code-bg);
+            border-radius: 4px;
+            padding: 10px;
+            overflow-y: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .log-entry {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #333;
+        }
+
+        .log-time {
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+
+        .log-type.req {
+            color: #64b5f6;
+        }
+
+        .log-type.res {
+            color: #81c784;
+        }
+
+        .log-type.err {
+            color: #e57373;
+        }
+
+        pre {
+            margin: 5px 0 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-secondary);
+            border-radius: 0;
+        }
+
+        .tab-btn.active {
+            border-bottom-color: var(--accent-color);
+            color: var(--text-primary);
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <h1>🛠️ Medi Bot Test Console</h1>
+        </div>
+        <div>
+            Backend Status: <span id="statusBadge" class="status-badge offline">OFFLINE</span>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <!-- Controls Panel -->
+        <div class="panel">
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('text')">Text Query</button>
+                <button class="tab-btn" onclick="switchTab('image')">Image Analysis</button>
+                <button class="tab-btn" onclick="switchTab('health')">System Health</button>
+            </div>
+
+            <!-- Text Query Tab -->
+            <div id="tab-text" class="tab-content">
+                <div class="control-group">
+                    <label for="queryInput">Medical Query:</label>
+                    <textarea id="queryInput" rows="4"
+                        placeholder="e.g., What are the symptoms of diabetes?">What is acne?</textarea>
+                </div>
+                <div class="control-group">
+                    <label for="langSelect">Language:</label>
+                    <select id="langSelect">
+                        <option value="en">English</option>
+                        <option value="es">Spanish</option>
+                        <option value="fr">French</option>
+                        <option value="hi">Hindi</option>
+                    </select>
+                </div>
+                <button onclick="sendQuery()">Send Query</button>
+            </div>
+
+            <!-- Image Analysis Tab -->
+            <div id="tab-image" class="tab-content hidden">
+                <div class="control-group">
+                    <label for="imageInput">Select Skin Image:</label>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+                <div class="control-group">
+                    <img id="imagePreview"
+                        style="max-width: 100%; max-height: 200px; border-radius: 4px; display: none; margin-top: 10px;">
+                </div>
+                <button onclick="analyzeImage()">Analyze Image</button>
+            </div>
+
+            <!-- Health Tab -->
+            <div id="tab-health" class="tab-content hidden">
+                <div class="control-group">
+                    <p>Check the health status of the backend server and its components.</p>
+                </div>
+                <button onclick="checkHealth()">Run Health Check</button>
+            </div>
+        </div>
+
+        <!-- Logs Panel -->
+        <div class="panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                <h2>Debug Console / JSON Output</h2>
+                <button class="secondary" style="padding: 5px 10px; font-size: 0.8rem;"
+                    onclick="clearLogs()">Clear</button>
+            </div>
+            <div id="logsContainer" class="logs-container">
+                <div class="log-entry"><span class="log-time">System</span> Welcome to Medi Bot Diagnostic Console.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script>
+        // DOM Elements
+        const statusBadge = document.getElementById('statusBadge');
+        const logsContainer = document.getElementById('logsContainer');
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+
+        // --- Utilities ---
+
+        function log(type, title, data) {
+            const entry = document.createElement('div');
+            entry.className = 'log-entry';
+            const time = new Date().toLocaleTimeString();
+            let content = '';
+
+            if (data) {
+                if (typeof data === 'object') {
+                    content = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                } else {
+                    content = `<pre>${data}</pre>`;
+                }
+            }
+
+            entry.innerHTML = `
+                <span class="log-time">[${time}]</span> 
+                <span class="log-type ${type.toLowerCase().substring(0, 3)}"><b>${type}</b></span> 
+                ${title}
+                ${content}
+            `;
+
+            logsContainer.appendChild(entry);
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+        }
+
+        function clearLogs() {
+            logsContainer.innerHTML = '';
+            log('INFO', 'Logs cleared');
+        }
+
+        function updateStatus(isOnline) {
+            if (isOnline) {
+                statusBadge.textContent = 'ONLINE';
+                statusBadge.className = 'status-badge online';
+            } else {
+                statusBadge.textContent = 'OFFLINE';
+                statusBadge.className = 'status-badge offline';
+            }
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        // --- API Calls ---
+
+        async function checkHealth() {
+            log('REQ', 'Checking Health...', `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.HEALTH_CHECK}`);
+            try {
+                const start = performance.now();
+                const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.HEALTH_CHECK}`);
+                const data = await response.json();
+                const duration = (performance.now() - start).toFixed(0);
+
+                log('RES', `Health OK (${duration}ms)`, data);
+                updateStatus(true);
+            } catch (error) {
+                log('ERR', 'Health Check Failed', error.message);
+                updateStatus(false);
+            }
+        }
+
+        async function sendQuery() {
+            const query = document.getElementById('queryInput').value;
+            const language = document.getElementById('langSelect').value;
+
+            if (!query) {
+                alert('Please enter a query');
+                return;
+            }
+
+            log('REQ', 'Sending Query...', { query, language });
+
+            const formData = new FormData();
+            formData.append('query', query);
+            formData.append('language', language);
+
+            try {
+                const start = performance.now();
+                const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.MEDICAL_QUERY}`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const data = await response.json();
+                const duration = (performance.now() - start).toFixed(0);
+
+                log('RES', `Query Response (${duration}ms)`, data);
+                updateStatus(true);
+            } catch (error) {
+                log('ERR', 'Query Failed', error.message);
+            }
+        }
+
+        async function analyzeImage() {
+            const file = imageInput.files[0];
+            if (!file) {
+                alert('Please select an image first');
+                return;
+            }
+
+            log('REQ', 'Uploading Image...', { name: file.name, size: file.size, type: file.type });
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            try {
+                const start = performance.now();
+                const response = await fetch(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.IMAGE_ANALYSIS}`, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const data = await response.json();
+                const duration = (performance.now() - start).toFixed(0);
+
+                log('RES', `Analysis Complete (${duration}ms)`, data);
+                updateStatus(true);
+            } catch (error) {
+                log('ERR', 'Analysis Failed', error.message);
+            }
+        }
+
+        // --- Init ---
+
+        imageInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Initial health check
+        checkHealth();
+        setInterval(checkHealth, 30000); // Poll every 30s
+
+    </script>
+</body>
+
+</html>

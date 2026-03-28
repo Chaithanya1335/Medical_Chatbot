@@ -1,0 +1,253 @@
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE & TABLET
+   ============================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 200;
+        transform: translateX(0);
+    }
+
+    .sidebar.mobile-hidden {
+        transform: translateX(-100%);
+    }
+
+    .sidebar-toggle {
+        display: flex;
+    }
+
+    .chat-container {
+        max-width: 100%;
+    }
+
+    .messages-area {
+        padding: 1.5rem 1rem;
+    }
+
+    .message {
+        gap: 1rem;
+    }
+
+    .message.user {
+        margin: 0 -1rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .welcome-screen {
+        padding: 1.5rem 1rem;
+    }
+
+    .welcome-icon {
+        font-size: 3rem;
+    }
+
+    .welcome-screen h1 {
+        font-size: 1.75rem;
+    }
+
+    .capabilities {
+        grid-template-columns: 1fr;
+    }
+
+    .input-area {
+        padding: 0.875rem;
+    }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 280px;
+    }
+
+    .sidebar-toggle {
+        top: 0.75rem;
+        left: 0.75rem;
+    }
+
+    .messages-area {
+        padding: 1rem 0.75rem;
+    }
+
+    .message {
+        gap: 0.75rem;
+        padding: 1rem 0;
+    }
+
+    .message.user {
+        margin: 0 -0.75rem;
+        padding: 1rem 0.75rem;
+    }
+
+    .message-avatar {
+        width: 28px;
+        height: 28px;
+        font-size: 1.1rem;
+    }
+
+    .message-header {
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .message-author {
+        font-size: 0.8125rem;
+    }
+
+    .confidence-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .message-text {
+        font-size: 0.875rem;
+    }
+
+    .welcome-screen {
+        padding: 1rem 0.75rem;
+    }
+
+    .welcome-icon {
+        font-size: 2.5rem;
+    }
+
+    .welcome-screen h1 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-screen>p {
+        font-size: 1rem;
+    }
+
+    .capabilities {
+        gap: 0.75rem;
+    }
+
+    .capability-card {
+        padding: 1.25rem;
+    }
+
+    .capability-icon {
+        font-size: 1.75rem;
+    }
+
+    .disclaimer-box {
+        padding: 1rem;
+        font-size: 0.8125rem;
+        gap: 0.75rem;
+    }
+
+    .input-area {
+        padding: 0.75rem;
+    }
+
+    .input-wrapper {
+        padding: 0.625rem 0.875rem;
+        gap: 0.5rem;
+    }
+
+    #userInput {
+        font-size: 0.875rem;
+    }
+
+    .send-btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .language-selector-bottom select {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.625rem;
+    }
+
+    .sources-section li {
+        padding: 0.75rem;
+    }
+
+    .sources-section strong {
+        font-size: 0.8125rem;
+    }
+
+    .source-snippet {
+        font-size: 0.75rem;
+    }
+}
+
+/* Large Desktop (1400px and above) */
+@media (min-width: 1400px) {
+    .app-container {
+        max-width: 1600px;
+    }
+
+    .chat-messages {
+        height: calc(100vh - 400px);
+        min-height: 500px;
+        max-height: 700px;
+    }
+
+    .results-grid {
+        gap: 3rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+
+    .medical-header,
+    .safety-banner,
+    .chat-input,
+    .scroll-to-top,
+    .medical-footer,
+    .icon-button,
+    .connection-status {
+        display: none !important;
+    }
+
+    .chat-container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .chat-messages {
+        height: auto;
+        overflow: visible;
+    }
+
+    .message {
+        page-break-inside: avoid;
+    }
+}
+
+/* Landscape Orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .chat-messages {
+        height: calc(100vh - 400px);
+        min-height: 250px;
+        max-height: 350px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000;
+        --shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .dark-theme {
+        --border-color: #fff;
+    }
+}

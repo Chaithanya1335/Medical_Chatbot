@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sources Toggle Demo</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            padding: 2rem;
+            background: #f5f7fa;
+        }
+
+        .demo-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .message {
+            background: #f8f9fa;
+            padding: 1.25rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .message-content {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .sources-toggle {
+            margin-top: 0.75rem;
+        }
+
+        .sources-toggle-btn {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            padding: 0.5rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: #666;
+            transition: all 0.2s;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .sources-toggle-btn:hover {
+            background: #e9ecef;
+            color: #667eea;
+        }
+
+        .toggle-icon {
+            transition: transform 0.2s;
+            display: inline-block;
+            font-size: 0.7rem;
+        }
+
+        .toggle-icon.rotated {
+            transform: rotate(90deg);
+        }
+
+        .sources-section {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            margin-top: 0.5rem;
+        }
+
+        .sources-section.expanded {
+            max-height: 1000px;
+            padding-top: 0.75rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .sources-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sources-section li {
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        .sources-section strong {
+            color: #667eea;
+            font-size: 0.875rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .source-snippet {
+            font-size: 0.85rem;
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .source-score {
+            font-size: 0.75rem;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .info {
+            background: #e0e7ff;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            border-left: 4px solid #667eea;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="demo-container">
+        <h1>🩺 Sources Toggle Demo</h1>
+
+        <div class="info">
+            <strong>How it works:</strong>
+            <p>Click the "View Sources" button below to expand/collapse the sources section. The arrow will rotate and
+                sources will slide in smoothly.</p>
+        </div>
+
+        <div class="message">
+            <div class="message-content">
+                <strong>Medi Bot Response:</strong>
+                <p>Diabetes is a chronic condition that affects how your body processes blood sugar (glucose). There are
+                    two main types: Type 1 diabetes, where the body doesn't produce insulin, and Type 2 diabetes, where
+                    the body doesn't use insulin properly. Common symptoms include increased thirst, frequent urination,
+                    extreme fatigue, and blurred vision.</p>
+            </div>
+
+            <div class="sources-toggle">
+                <button class="sources-toggle-btn" onclick="toggleSources()">
+                    <span class="toggle-icon" id="toggleIcon">▶</span>
+                    <span>View 3 Sources</span>
+                </button>
+            </div>
+
+            <div class="sources-section" id="sourcesSection">
+                <ul>
+                    <li>
+                        <strong>Medical Encyclopedia - Diabetes Overview</strong>
+                        <p class="source-snippet">Diabetes mellitus is a group of metabolic diseases characterized by
+                            hyperglycemia resulting from defects in insulin secretion, insulin action, or both.</p>
+                        <span class="source-score">Relevance: 95%</span>
+                    </li>
+                    <li>
+                        <strong>Clinical Guidelines for Diabetes Management</strong>
+                        <p class="source-snippet">Early detection and proper management of diabetes can prevent or delay
+                            complications such as heart disease, kidney damage, and nerve damage.</p>
+                        <span class="source-score">Relevance: 88%</span>
+                    </li>
+                    <li>
+                        <strong>Symptoms and Diagnosis of Diabetes</strong>
+                        <p class="source-snippet">Common symptoms include polydipsia (excessive thirst), polyuria
+                            (frequent urination), polyphagia (increased hunger), and unexplained weight loss.</p>
+                        <span class="source-score">Relevance: 82%</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="info" style="margin-top: 2rem;">
+            <strong>Benefits:</strong>
+            <ul style="margin: 0.5rem 0 0 1.5rem;">
+                <li>Cleaner interface - less clutter</li>
+                <li>Faster reading - focus on the answer</li>
+                <li>Optional details - expand when needed</li>
+                <li>Smooth animation - professional feel</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleSources() {
+            const section = document.getElementById('sourcesSection');
+            const icon = document.getElementById('toggleIcon');
+
+            section.classList.toggle('expanded');
+            icon.classList.toggle('rotated');
+        }
+    </script>
+</body>
+
+</html>

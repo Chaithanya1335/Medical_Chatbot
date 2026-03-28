@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediConsult AI Workspace Showcase</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/chat_style.css?v=20260322">
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .capture-shell {
+            width: min(1320px, calc(100vw - 2rem));
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <div class="page-noise" aria-hidden="true"></div>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+        <a href="#" class="brand-mark">
+            <span class="brand-mark__icon">+</span>
+            <span>
+                <strong>MediConsult AI</strong>
+                <small>Workspace showcase</small>
+            </span>
+        </a>
+        <div class="site-actions">
+            <span class="status-chip">Demo mode active</span>
+            <span class="status-chip">Backend status: Healthy</span>
+        </div>
+    </header>
+
+    <main class="capture-shell">
+        <section class="workspace-layout">
+            <aside class="workspace-sidebar glass-card">
+                <div class="workspace-sidebar__header">
+                    <button class="primary-button primary-button--compact" type="button">New consultation</button>
+                    <button class="text-button" type="button">Refresh</button>
+                </div>
+
+                <div class="session-list">
+                    <article class="session-item is-active">
+                        <div class="session-item__meta">
+                            <span class="session-item__title">Evidence-backed dermatology consult</span>
+                        </div>
+                        <span>Compare eczema and psoriasis symptoms with escalation guidance.</span>
+                        <small>Just now</small>
+                    </article>
+                    <article class="session-item">
+                        <div class="session-item__meta">
+                            <span class="session-item__title">Vision triage review</span>
+                        </div>
+                        <span>Image analysis completed with annotated findings.</span>
+                        <small>5m ago</small>
+                    </article>
+                </div>
+
+                <div class="workspace-user">
+                    <div class="workspace-user__avatar">DC</div>
+                    <div>
+                        <strong>Demo Clinician</strong>
+                        <p>demo@mediconsult.local</p>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="workspace-main glass-card">
+                <div class="workspace-main__header">
+                    <div>
+                        <p class="eyebrow">Conversation canvas</p>
+                        <h3>Evidence-backed dermatology consult</h3>
+                    </div>
+                    <span class="session-timestamp">Updated just now</span>
+                </div>
+
+                <div class="messages-area">
+                    <article class="chat-message chat-message--user">
+                        <div class="chat-message__bubble">
+                            <div class="chat-message__header">
+                                <span class="chat-message__title">Demo Clinician</span>
+                                <span class="chat-message__time">09:40 AM</span>
+                            </div>
+                            <div class="message-body">
+                                <p>Compare eczema and psoriasis symptoms and highlight when urgent care is needed.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="chat-message chat-message--assistant">
+                        <div class="chat-message__bubble">
+                            <div class="chat-message__header">
+                                <span class="chat-message__title">MediConsult AI</span>
+                                <span class="chat-message__time">09:41 AM</span>
+                            </div>
+                            <div class="chat-message__footer">
+                                <span class="confidence-high">High confidence</span>
+                                <small>Evidence-grounded comparison</small>
+                            </div>
+                            <div class="message-body">
+                                <p><strong>Eczema</strong> more often presents with intense itch and inflamed patches,
+                                    while <strong>psoriasis</strong> typically shows sharply bordered plaques with a
+                                    silvery scale.</p>
+                                <p>Escalate urgently if a rash is rapidly spreading, associated with fever, facial
+                                    swelling, breathing difficulty, or signs of infection.</p>
+                            </div>
+                            <details class="sources-card" open>
+                                <summary>Evidence sources (2)</summary>
+                                <div class="source-item">
+                                    <strong>Clinical dermatology reference</strong>
+                                    <span>Eczema is pruritic and inflammatory while psoriasis is classically
+                                        plaque-forming with scale.</span>
+                                </div>
+                                <div class="source-item">
+                                    <strong>Emergency guidance</strong>
+                                    <span>Escalate promptly for fever, facial swelling, or rapidly progressive skin
+                                        involvement.</span>
+                                </div>
+                            </details>
+                        </div>
+                    </article>
+
+                    <article class="chat-message chat-message--system">
+                        <div class="chat-message__bubble">
+                            <div class="chat-message__header">
+                                <span class="chat-message__title">System</span>
+                                <span class="chat-message__time">09:42 AM</span>
+                            </div>
+                            <div class="analysis-card">
+                                <div class="analysis-card__header">
+                                    <strong>Vision analysis</strong>
+                                    <span>Complete</span>
+                                </div>
+                                <div class="ops-list">
+                                    <div class="ops-row">
+                                        <strong>Atopic dermatitis</strong>
+                                        <span>91% confidence</span>
+                                    </div>
+                                    <div class="ops-row">
+                                        <strong>Inflammatory flare</strong>
+                                        <span>78% confidence</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="composer">
+                    <div class="composer-shell">
+                        <button class="icon-button icon-button--upload" type="button">＋</button>
+                        <textarea rows="1">Ask a grounded health question, or pair one with an image...</textarea>
+                        <button class="primary-button primary-button--compact" type="button">Send</button>
+                    </div>
+                    <p class="composer-note">Educational demo only. Always consult a licensed clinician.</p>
+                </div>
+            </section>
+
+            <aside class="workspace-rail glass-card">
+                <div class="rail-card">
+                    <p class="eyebrow">Live operations</p>
+                    <h3>System snapshot</h3>
+                    <div class="ops-list">
+                        <div class="ops-row">
+                            <strong>Handler state</strong>
+                            <span>ready</span>
+                        </div>
+                        <div class="ops-row">
+                            <strong>Vector index</strong>
+                            <span>ready</span>
+                        </div>
+                        <div class="ops-row">
+                            <strong>Vision model</strong>
+                            <span>ready</span>
+                        </div>
+                        <div class="ops-row">
+                            <strong>Notifications</strong>
+                            <span>connected</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rail-card">
+                    <p class="eyebrow">Proposal assets</p>
+                    <h3>What a client can evaluate</h3>
+                    <div class="asset-list">
+                        <a href="#">Premium responsive UX</a>
+                        <a href="#">Evidence-backed answer cards</a>
+                        <a href="#">Multimodal vision support</a>
+                        <a href="#">Realtime trust center</a>
+                    </div>
+                </div>
+            </aside>
+        </section>
+    </main>
+</body>
+
+</html>
