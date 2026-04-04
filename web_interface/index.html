@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediConsult AI — Your Intelligent Medical Assistant</title>
     <meta name="description" content="Get evidence-backed medical answers, upload images for AI analysis, and save your consultations securely.">
-    <meta name="theme-color" content="#09090b">
+    <meta name="theme-color" content="#0f172a">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2314b8a6'/><stop offset='100%25' stop-color='%2306b6d4'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><path d='M18 32h28' stroke='white' stroke-width='5' stroke-linecap='round'/><path d='M32 18v28' stroke='white' stroke-width='5' stroke-linecap='round'/></svg>">
-    <link rel="stylesheet" href="css/chat_style.css?v=4">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%25' stop-color='%2310b981'/><stop offset='100%25' stop-color='%233b82f6'/></linearGradient></defs><rect width='64' height='64' rx='16' fill='url(%23g)'/><path d='M18 32h28' stroke='white' stroke-width='5' stroke-linecap='round'/><path d='M32 18v28' stroke='white' stroke-width='5' stroke-linecap='round'/></svg>">
+    <link rel="stylesheet" href="css/enhanced_style.css">
     <script src="js/config.js" defer></script>
     <script src="js/utils.js" defer></script>
     <script src="js/api.js" defer></script>
     <script src="js/auth.js" defer></script>
     <script src="js/translations.js" defer></script>
+    <script src="js/enhanced_animations.js" defer></script>
     <script src="js/chat_interface.js" defer></script>
 </head>
 <body data-theme="dark">
@@ -24,7 +25,7 @@
 <header class="site-header" id="siteHeader">
     <a href="/" class="brand" id="brandMark">
         <span class="brand-icon">+</span>
-        MediConsult AI
+        <span>MediConsult AI</span>
     </a>
     <div class="header-actions" id="siteActions">
         <label class="language-pill" for="languageSelect">
@@ -39,8 +40,10 @@
                 <option value="te">TE</option>
             </select>
         </label>
-        <button class="btn-icon btn-secondary" id="themeToggle" type="button" aria-label="Toggle theme">◐</button>
-        <button class="btn-ghost btn-sm" id="notificationToggle" type="button" aria-label="Notifications">
+        <button class="btn btn-icon btn-ghost" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+            <span id="themeIcon">🌙</span>
+        </button>
+        <button class="btn btn-icon btn-ghost" id="notificationToggle" type="button" aria-label="Notifications" title="Notifications">
             🔔<span class="notification-badge" id="notificationBadge" style="display:none">0</span>
         </button>
         <!-- Logged-out state -->
@@ -57,7 +60,7 @@
 <aside class="notification-panel" id="notificationPanel" aria-label="Notifications">
     <div class="panel-header">
         <h2 data-i18n="notificationsTitle">Notifications</h2>
-        <button class="btn-ghost btn-sm" id="clearNotificationsBtn" type="button">Clear</button>
+        <button class="btn btn-ghost btn-sm" id="clearNotificationsBtn" type="button">Clear</button>
     </div>
     <div class="notification-list" id="notificationList"></div>
 </aside>
@@ -70,12 +73,28 @@
     <!-- Hero -->
     <section class="hero">
         <div class="hero-inner">
-            <div class="hero-badge">AI-Powered Medical Assistant</div>
+            <div class="hero-badge">🩺 AI-Powered Medical Assistant</div>
             <h1>Get <span>Evidence-Backed</span><br>Health Answers Instantly</h1>
             <p>Ask medical questions and receive grounded responses backed by clinical sources. Upload images for AI-powered analysis — all in one secure workspace.</p>
             <div class="hero-cta">
-                <a href="/login.html" class="btn btn-primary" id="heroPrimaryBtn">Start Free Consultation →</a>
-                <a href="#features" class="btn btn-secondary">See How It Works</a>
+                <a href="/login.html" class="btn btn-primary btn-lg" id="heroPrimaryBtn">Start Free Consultation →</a>
+                <a href="#features" class="btn btn-secondary btn-lg">See How It Works</a>
+            </div>
+            
+            <!-- Hero Stats -->
+            <div class="hero-stats" style="display: flex; gap: 2rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 800; color: var(--accent-primary);">7+</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Languages</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 800; color: var(--blue-500);">24/7</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Available</div>
+                </div>
+                <div style="text-align: center;">
+                    <div style="font-size: 2rem; font-weight: 800; color: var(--accent-primary);">AI</div>
+                    <div style="font-size: 0.875rem; color: var(--text-secondary);">Powered</div>
+                </div>
             </div>
         </div>
     </section>
@@ -146,12 +165,25 @@
         </div>
     </section>
 
+    <!-- Trust Indicators -->
+    <section style="padding: 4rem 1.5rem; background: var(--bg-secondary);">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-primary);">Trusted Technology Stack</h3>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; opacity: 0.7;">
+                <span style="padding: 0.5rem 1rem; background: var(--bg-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">🔬 YOLOv8</span>
+                <span style="padding: 0.5rem 1rem; background: var(--bg-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">🤖 Groq LLM</span>
+                <span style="padding: 0.5rem 1rem; background: var(--bg-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">📚 LangChain RAG</span>
+                <span style="padding: 0.5rem 1rem; background: var(--bg-elevated); border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">🔍 FAISS Vector DB</span>
+            </div>
+        </div>
+    </section>
+
     <!-- Bottom CTA -->
     <section class="landing-cta">
         <div class="landing-cta-box">
             <h2>Ready to start your consultation?</h2>
             <p>Join thousands using AI-assisted health information responsibly.</p>
-            <a href="/login.html" class="btn btn-primary">Create Free Account →</a>
+            <a href="/login.html" class="btn btn-primary btn-lg">Create Free Account →</a>
         </div>
     </section>
 
@@ -175,9 +207,9 @@
             </div>
             <div class="session-list" id="chatHistory"></div>
             <div class="sidebar-bottom">
-                <a class="btn-ghost btn-sm" id="sidebarAccountLink" href="/login.html">Account</a>
-                <button class="btn-ghost btn-sm" id="logoutBtn" type="button" data-i18n="resetDemo">Sign out</button>
-                <button class="btn-ghost btn-sm" id="refreshSessionsBtn" type="button" data-i18n="refresh" style="margin-left:auto">↻</button>
+                <a class="btn btn-ghost btn-sm" id="sidebarAccountLink" href="/login.html">Account</a>
+                <button class="btn btn-ghost btn-sm" id="logoutBtn" type="button" data-i18n="resetDemo">Sign out</button>
+                <button class="btn btn-ghost btn-sm" id="refreshSessionsBtn" type="button" data-i18n="refresh" style="margin-left:auto">↻</button>
             </div>
         </aside>
 
@@ -186,7 +218,7 @@
             <div class="chat-top">
                 <div style="display:flex;align-items:center;gap:.75rem;min-width:0">
                     <span class="chat-title" id="activeSessionTitle" data-i18n="workspaceDefaultTitle">New conversation</span>
-                    <span id="activeSessionTimestamp" style="font-size:.75rem;color:var(--text3);white-space:nowrap"></span>
+                    <span id="activeSessionTimestamp" style="font-size:.75rem;color:var(--text-tertiary);white-space:nowrap"></span>
                 </div>
                 <div class="chat-top-actions">
                     <div class="service-tabs" id="serviceTabs" role="tablist">
@@ -208,9 +240,21 @@
                     <p class="service-panel__subtitle">Upload an image and run AI analysis. Results are saved to your active session.</p>
                 </div>
                 <div class="service-panel__grid">
-                    <article class="rail-card"><strong>Step 1</strong><p>Select JPG/PNG/WEBP under 5 MB</p></article>
-                    <article class="rail-card"><strong>Step 2</strong><p>Run analysis to detect visual signals</p></article>
-                    <article class="rail-card"><strong>Step 3</strong><p>Switch to Chat for follow-ups</p></article>
+                    <article class="rail-card">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+                        <strong>Step 1</strong>
+                        <p>Select JPG/PNG/WEBP under 5 MB</p>
+                    </article>
+                    <article class="rail-card">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">🔍</div>
+                        <strong>Step 2</strong>
+                        <p>Run analysis to detect visual signals</p>
+                    </article>
+                    <article class="rail-card">
+                        <div style="font-size: 2rem; margin-bottom: 0.5rem;">💬</div>
+                        <strong>Step 3</strong>
+                        <p>Switch to Chat for follow-ups</p>
+                    </article>
                 </div>
             </section>
 
@@ -259,11 +303,11 @@
                     </div>
                     <div class="image-preview__actions">
                         <button class="btn btn-secondary btn-sm" id="analyzeImageBtn" type="button" data-i18n="analyzeImage" aria-describedby="analyzeHint">Analyze</button>
-                        <button class="btn-ghost btn-sm" id="removeImageBtn" type="button" data-i18n="removeImage">Remove</button>
+                        <button class="btn btn-ghost btn-sm" id="removeImageBtn" type="button" data-i18n="removeImage">Remove</button>
                     </div>
                 </div>
                 <div class="composer-shell" id="composerShell" role="form" aria-label="Message composer">
-                    <label class="upload-trigger" for="imageInput" aria-label="Upload image for analysis">
+                    <label class="upload-trigger" for="imageInput" aria-label="Upload image for analysis" title="Upload image">
                         <span aria-hidden="true">📎</span>
                         <span class="sr-only">Attach image</span>
                     </label>
