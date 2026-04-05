@@ -1,0 +1,30 @@
+# Ignore large non-essential files
+.git/
+.gitignore
+test.ipynb
+Medical_Bot.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.ipynb_checkpoints/
+
+# Documentation
+Readme.md
+web_interface/README.md
+
+# Web interface (not used in Streamlit deployment)
+web_interface/
+
+# Large data files not needed at runtime
+The-Gale-Encyclopedia-of-Medicine-3rd-Edition-staibabussalamsula.ac_.id_.pdf
+Data/
+
+# Logs
+logs/
